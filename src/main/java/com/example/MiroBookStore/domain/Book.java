@@ -18,8 +18,6 @@ public class Book {
     private String isbn;
     private double price;
 
-    public Book() {
-    }
 
     public Book(Long id, String title, String author, int year, String isbn, double price) {
         this.id = id;
@@ -29,6 +27,11 @@ public class Book {
         this.isbn = isbn;
         this.price = price;
     }
+
+    public Book() {
+
+    }
+
 
     public Long getId() {
         return id;
