@@ -5,6 +5,7 @@ import com.example.MiroBookStore.domain.bookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,6 +38,18 @@ public class BookController {
     public String deleteBook(@PathVariable("id") Long id, Model model) {
         repository.deleteById(id);
         return "redirect:../booklist";
+    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editBook(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("book", repository.findById(id));
+        return "editBook";
+    }
+
+    @RequestMapping(value = "/process", method = RequestMethod.POST)
+    public String saveEditedBook(@ModelAttribute Book book) {
+        repository.save(book);
+        return "redirect:booklist";
     }
 
 }
