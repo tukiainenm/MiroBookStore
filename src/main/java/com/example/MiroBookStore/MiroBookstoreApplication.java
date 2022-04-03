@@ -2,6 +2,8 @@ package com.example.MiroBookStore;
 
 import com.example.MiroBookStore.domain.Book;
 import com.example.MiroBookStore.domain.bookRepository;
+import com.example.MiroBookStore.domain.Category;
+import com.example.MiroBookStore.domain.categoryRepository;
 import org.apache.commons.logging.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,17 +22,23 @@ public class MiroBookstoreApplication {
     }
 
     @Bean
-    public CommandLineRunner demo(bookRepository repository) {
+    public CommandLineRunner demo(bookRepository bRepository, categoryRepository cRepository) {
         return (args) -> {
-            Log.info("Example books");
-            repository.save(new Book(2L, "Epic adventure", "John Johnson", 2011, "2932-23", 20));
-            repository.save(new Book(3L, "Epic adventure 2", "John Johnson", 2013, "2932-24", 22));
+            Log.info("Categories");
+            cRepository.save(new Category("Fantasy"));
+            cRepository.save(new Category("Horror"));
+            cRepository.save(new Category("Comedy"));
+            Log.info("----------------------------------------------------");
 
-            Log.info("Fetch all books");
-            for (Book book : repository.findAll()) ; {
-                Log.info(String.valueOf(new Book()));
-            }
+            Log.info("Example books");
+            bRepository.save(new Book("The Lord Of The Rings"," J.R.R. Tolkien", 2002, "1292-23",223, cRepository.findByName("Fantasy").get(0)));
+            bRepository.save(new Book("The Hobbit"," J.R.R. Tolkien", 1937, "1292-23",223, cRepository.findByName("Fantasy").get(0)));
+            bRepository.save(new Book("The Shining"," Stephen King", 1977, "1292-23",223, cRepository.findByName("Horror").get(0)));
+            bRepository.save(new Book("The Stand"," Stephen King", 1978, "1292-23",223, cRepository.findByName("Horror").get(0)));
+
+
         };
     }
+
 
 }

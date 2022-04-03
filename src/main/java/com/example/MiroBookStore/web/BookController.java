@@ -2,6 +2,7 @@ package com.example.MiroBookStore.web;
 
 import com.example.MiroBookStore.domain.Book;
 import com.example.MiroBookStore.domain.bookRepository;
+import com.example.MiroBookStore.domain.categoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class BookController {
+
     @Autowired
     private bookRepository repository;
+
+    @Autowired
+    private categoryRepository cRepository;
 
     @RequestMapping(value = {"/", "/booklist"})
     public String bookList(Model model) {
@@ -24,7 +29,7 @@ public class BookController {
     @RequestMapping(value = "/add")
     public String addBook(Model model) {
         model.addAttribute("book", new Book());
-        model.addAttribute("books", repository.findAll());
+        model.addAttribute("categories", cRepository.findAll());
         return "addBook";
     }
 
@@ -43,6 +48,7 @@ public class BookController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editBook(@PathVariable("id") Long id, Model model) {
         model.addAttribute("book", repository.findById(id));
+        model.addAttribute("categories", cRepository.findAll());
         return "editBook";
     }
 
