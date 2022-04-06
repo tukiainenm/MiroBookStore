@@ -31,10 +31,10 @@ public class MiroBookstoreApplication {
             Log.info("----------------------------------------------------");
 
             Log.info("Example books");
-            bRepository.save(new Book("The Lord Of The Rings"," J.R.R. Tolkien", 2002, "1292-23",223, cRepository.findByName("Fantasy").get(0)));
-            bRepository.save(new Book("The Hobbit"," J.R.R. Tolkien", 1937, "1292-23",223, cRepository.findByName("Fantasy").get(0)));
-            bRepository.save(new Book("The Shining"," Stephen King", 1977, "1292-23",223, cRepository.findByName("Horror").get(0)));
-            bRepository.save(new Book("The Stand"," Stephen King", 1978, "1292-23",223, cRepository.findByName("Horror").get(0)));
+            bRepository.save(new Book("The Lord Of The Rings", " J.R.R. Tolkien", 2002, "1292-23", 223, cRepository.findByName("Fantasy").get(0)));
+            bRepository.save(new Book("The Hobbit", " J.R.R. Tolkien", 1937, "1292-23", 21.0, cRepository.findByName("Fantasy").get(0)));
+            bRepository.save(new Book("The Shining", " Stephen King", 1977, "1293-23", 21.3, cRepository.findByName("Horror").get(0)));
+            bRepository.save(new Book("The Stand", " Stephen King", 1978, "1294-23", 22.5, cRepository.findByName("Horror").get(0)));
 
 
         };

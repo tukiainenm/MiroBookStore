@@ -18,7 +18,7 @@ public class Book {
     private double price;
 
     @ManyToOne
-    @JoinColumn(name = "categoryId")
+    @JoinColumn(name = "categoryid")
     @JsonManagedReference
     private Category category;
 
