@@ -4,6 +4,7 @@ import com.example.MiroBookStore.domain.Book;
 import com.example.MiroBookStore.domain.bookRepository;
 import com.example.MiroBookStore.domain.categoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,11 @@ public class BookController {
 
     @Autowired
     private categoryRepository cRepository;
+
+    @RequestMapping(value = "/login")
+    public String login() {
+        return "login";
+    }
 
     @RequestMapping(value = {"/", "/booklist"})
     public String bookList(Model model) {
@@ -40,6 +46,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String deleteBook(@PathVariable("id") Long id, Model model) {
         repository.deleteById(id);
         return "redirect:../booklist";
@@ -69,5 +76,6 @@ public class BookController {
     Optional<Book> findBookRest(@PathVariable("id") Long id) {
         return repository.findById(id);
     }
+
 
 }
