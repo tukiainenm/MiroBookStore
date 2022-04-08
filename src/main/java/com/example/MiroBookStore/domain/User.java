@@ -4,6 +4,7 @@ package com.example.MiroBookStore.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name="usertable")
 public class User {
 
     @Id
