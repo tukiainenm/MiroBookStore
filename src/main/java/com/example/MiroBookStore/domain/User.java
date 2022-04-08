@@ -23,6 +23,11 @@ public class User {
     public User() {
     }
 
+    public User(String userName) {
+        super();
+        this.userName = userName;
+    }
+
     public User(String userName, String passwordHash, String role) {
         super();
         this.userName = userName;
