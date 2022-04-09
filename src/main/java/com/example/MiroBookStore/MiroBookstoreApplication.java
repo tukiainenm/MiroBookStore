@@ -24,6 +24,12 @@ public class MiroBookstoreApplication {
             cRepository.save(new Category("Fantasy"));
             cRepository.save(new Category("Horror"));
             cRepository.save(new Category("Comedy"));
+            cRepository.save(new Category("Romance"));
+            cRepository.save(new Category("Drama"));
+            cRepository.save(new Category("Mystery"));
+            cRepository.save(new Category("Thriller"));
+            cRepository.save(new Category("Science Fiction"));
+            cRepository.save(new Category("Biography"));
             Log.info("----------------------------------------------------");
 
             Log.info("Example books");

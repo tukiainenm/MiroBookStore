@@ -1,6 +1,7 @@
 package com.example.MiroBookStore;
 
 import com.example.MiroBookStore.web.BookController;
+import com.example.MiroBookStore.web.userController;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,14 @@ class MiroBookstoreApplicationTests {
 	@Test
 	void contextLoads() throws Exception {
 		assertThat(bookController).isNotNull();
+	}
+
+	@Autowired
+	private userController userController;
+
+	@Test
+	void contextLoads1() throws Exception {
+		assertThat(userController).isNotNull();
 	}
 
 }

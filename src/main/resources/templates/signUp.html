@@ -23,6 +23,11 @@
                 <p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>
             </div>
 
+            <div>
+                <label> Choose role: <input type="text" th:field="*{role}" class="form-control"/></label>
+            </div>
+
+
             <input type="submit" class="btn btn-primary" value="Sign up">
         </form>
     </div>
