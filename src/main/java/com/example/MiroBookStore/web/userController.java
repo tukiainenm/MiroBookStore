@@ -21,7 +21,7 @@ public class userController {
     @RequestMapping(value = "/signup")
     public String addUser(Model model) {
         model.addAttribute("signUpForm", new signUpForm());
-        return "signup";
+        return "signUp";
     }
 
     @RequestMapping(value = "/saveuser", method = RequestMethod.POST)
@@ -40,14 +40,14 @@ public class userController {
                     uRepository.save(newUser);
                 } else {
                     bindingResult.rejectValue("username", "err.username", "Username already exists");
-                    return "signup";
+                    return "signUp";
                 }
             } else {
                 bindingResult.rejectValue("passwordCheck", "err.passCheck", "Passwords does not match");
-                return "signup";
+                return "signUp";
             }
         } else {
-            return "signup";
+            return "signUp";
         }
         return "redirect:/login";
     }
