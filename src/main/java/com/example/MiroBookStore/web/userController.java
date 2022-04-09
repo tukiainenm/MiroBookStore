@@ -24,8 +24,8 @@ public class userController {
         return "signUp";
     }
 
-    @RequestMapping(value = "/saveuser", method = RequestMethod.POST)
-    public String save(@Valid @ModelAttribute("signUpForm") signUpForm signUpForm, BindingResult bindingResult, Model model) {
+    @RequestMapping(value = "saveuser", method = RequestMethod.POST)
+    public String save(@Valid @ModelAttribute("signUpForm") signUpForm signUpForm, BindingResult bindingResult) {
         if (!bindingResult.hasErrors()) {
             if (signUpForm.getPassword().equals(signUpForm.getPasswordCheck())) {
                 String pwd = signUpForm.getPassword();
