@@ -33,7 +33,7 @@ public class MiroBookstoreApplication {
             bRepository.save(new Book("The Stand", " Stephen King", 1978, "1294-23", 22.5, cRepository.findByName("Horror").get(0)));
             Log.info("----------------------------------------------------");
 
-            uRepository.deleteAll();
+
             };
 
 

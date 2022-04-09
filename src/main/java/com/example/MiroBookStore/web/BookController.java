@@ -23,7 +23,7 @@ public class BookController {
 
     @RequestMapping(value = "/login")
     public String login() {
-        return "login";
+        return "loginPage";
     }
 
     @RequestMapping(value = {"/", "/booklist"})
